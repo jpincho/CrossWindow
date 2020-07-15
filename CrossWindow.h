@@ -2,6 +2,7 @@
 #include <glm/glm.hpp>
 #include <string>
 #include "Events.h"
+#include "CrossWindowConfig.h"
 
 #if defined CROSS_WINDOW_LOGGER_SUPPORT
 #include <Logger/Logger.h>

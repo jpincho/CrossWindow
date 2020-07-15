@@ -1,11 +1,6 @@
 #include "CrossWindow.h"
 #include "CrossWindowBackend.h"
-#if defined CROSS_WINDOW_LOGGER_SUPPORT
-#include <Logger/Logger.h>
-#else
-#define LOG_ERROR(...) do{}while(0)
-#define LOG_DEBUG(...) do{}while(0)
-#endif
+
 #if defined CROSS_WINDOW_WINDOWS_SUPPORT
 #include "Win32/Win32Backend.h"
 #endif

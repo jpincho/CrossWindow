@@ -1,0 +1,3 @@
+#pragma once
+#cmakedefine CROSS_WINDOW_LOGGER_SUPPORT
+
