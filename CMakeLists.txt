@@ -23,7 +23,6 @@ endif()
 # if the logger project is present, use it
 if ( TARGET Logger )
     list ( APPEND CROSS_WINDOW_LIBRARIES Logger )
-    list ( APPEND CROSS_WINDOW_DEFINITIONS CROSS_WINDOW_LOGGER_SUPPORT )
     set ( CROSS_WINDOW_LOGGER_SUPPORT TRUE )
     message ( STATUS "CrossWindow - Building with Logger support")
 endif()

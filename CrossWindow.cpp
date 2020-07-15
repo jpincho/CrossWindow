@@ -67,6 +67,7 @@ bool Window::Destroy ( void )
     if ( !Handle )
         return true;
     Backend->DestroyWindow ( Handle );
+    ProcessMessages();
     Handle = nullptr;
     return true;
     }
