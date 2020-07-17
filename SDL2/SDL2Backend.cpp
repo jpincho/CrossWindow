@@ -100,6 +100,29 @@ void SDL2Backend::FetchMessages ( void )
         {
         switch ( Event.type )
             {
+            case SDL_MOUSEWHEEL:
+                {
+                WindowEvent NewEvent;
+                NewEvent.EventType = WindowEventType::MouseWheel;
+                NewEvent.EventData.MouseWheel.X = Event.wheel.x;
+                NewEvent.EventData.MouseWheel.Y = Event.wheel.y;
+                NewEvent.OwnerHandle = *Windows.begin();
+                SendWindowEvent ( NewEvent );
+                Events.push_back ( NewEvent );
+                break;
+                }
+            case SDL_MOUSEBUTTONDOWN:
+            case SDL_MOUSEBUTTONUP:
+                {
+                if ( Event.key.repeat != 0 ) break;
+                WindowEvent NewEvent;
+                NewEvent.EventType = ( Event.type == SDL_MOUSEBUTTONDOWN ? WindowEventType::ButtonPressed : WindowEventType::ButtonReleased );
+                NewEvent.EventData.ButtonPressed.Button = Event.button.button;
+                NewEvent.OwnerHandle = *Windows.begin();
+                SendWindowEvent ( NewEvent );
+                Events.push_back ( NewEvent );
+                break;
+                }
             case SDL_KEYDOWN:
             case SDL_KEYUP:
                 {
