@@ -16,8 +16,8 @@ if ( SDL2_FOUND )
     option ( CROSS_WINDOW_SDL2_SUPPORT "Add SDL2 backend support" TRUE )
 endif()
 
-if (( NOT TARGET Logger ) AND ( EXISTS ${CMAKE_CURRENT_LIST_DIR}/Logger ))
-    add_subdirectory ( Logger )
+if (( NOT TARGET Logger ) AND ( EXISTS ${CMAKE_CURRENT_LIST_DIR}/ExternalModules/Logger ))
+    add_subdirectory ( ExternalModules/Logger )
     list ( APPEND CROSS_WINDOW_INCLUDE_DIRS ${CMAKE_CURRENT_LIST_DIR} )
 endif()
 # if the logger project is present, use it
