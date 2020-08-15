@@ -47,7 +47,9 @@ if (( ${CMAKE_SYSTEM_NAME} STREQUAL "Windows" ) AND ( MINGW ))
             NAMES
                 ${LIBRARY}
             )
-        file ( COPY ${MINGW_DEPENDENCY_LIB} DESTINATION ${CMAKE_RUNTIME_OUTPUT_DIRECTORY} )
+        if ( MINGW_DEPENDENCY_LIB )
+            file ( COPY ${MINGW_DEPENDENCY_LIB} DESTINATION ${CMAKE_RUNTIME_OUTPUT_DIRECTORY} )
+        endif()
     endforeach()
 endif()
 
